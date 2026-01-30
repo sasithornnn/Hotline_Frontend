@@ -3,10 +3,8 @@ import { Sidebar } from "@/components/layout/Sidebar"
 export default function DashboardPage() {
   return (
     <div className="flex min-h-screen bg-slate-50/30">
-      {/* เรียกใช้เมนูด้านซ้าย */}
       <Sidebar />
 
-      {/* ส่วนเนื้อหาฝั่งขวา */}
       <main className="flex-1 p-8">
         <div className="max-w-7xl mx-auto">
           <header className="mb-8">
@@ -14,13 +12,11 @@ export default function DashboardPage() {
             <p className="text-slate-500">ยินดีต้อนรับเข้าสู่ระบบจัดการ Hotline</p>
           </header>
 
-          {/* พื้นที่สำหรับใส่เนื้อหา Dashboard */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              <div className="h-40 bg-white border border-slate-100 rounded-xl shadow-sm p-6">
                 <span className="text-slate-400 text-xs font-bold uppercase">Total Users</span>
                 <p className="text-3xl font-bold text-slate-800 mt-2">1,240</p>
              </div>
-             {/* เพิ่ม Card อื่นๆ ตามต้องการ */}
           </div>
         </div>
       </main>
