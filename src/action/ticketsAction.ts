@@ -1,11 +1,38 @@
-import { Ticket } from "@/types/ticket/ticket";
+import { Ticket, TicketPriority } from "@/types/ticket/ticket"
 
-const MOCK_TICKETS: Ticket[] = [
-  { id: 'TCK-001', title: 'ระบบ Login ไม่สามารถเข้าสู่ระบบได้', customerCompany: 'บริษัท ABC จำกัด', customerName: 'คุณสมชาย ใจดี', category: 'Technical', priority: 'High', status: 'In Progress', assignee: 'Somsak Jaidee', createdAt: '2026-01-28' },
-  { id: 'TCK-002', title: 'ขอใบเสนอราคาสินค้า Model XYZ-100', customerCompany: 'ห้างหุ้นส่วนจำกัด DEF', customerName: 'คุณสมหญิง รักสวย', category: 'Sales', priority: 'Medium', status: 'Open', assignee: undefined, createdAt: '2026-01-29' },
-  { id: 'TCK-003', title: 'เครื่องพิมพ์เสีย ไม่สามารถพิมพ์เอกสาร...', customerCompany: 'บริษัท GHI จำกัด (มหาชน)', customerName: 'คุณประยุทธ ทำดี', category: 'Technical', priority: 'High', status: 'Resolved', assignee: 'Somsak Jaidee', createdAt: '2026-01-25' },
-];
+let mockTickets: Ticket[] = []
 
-export const getTickets = async (): Promise<Ticket[]> => {
-  return new Promise((resolve) => setTimeout(() => resolve(MOCK_TICKETS), 500));
-};
+export async function getTickets(): Promise<Ticket[]> {
+  return mockTickets
+}
+
+export async function createTicket(payload: {
+  customerCompany: string
+  customerName: string
+  machineModel: string
+  serialNumber: string
+  title: string
+  description: string
+  priority: TicketPriority
+}): Promise<Ticket> {
+  const newTicket: Ticket = {
+    id: `T-${Date.now()}`,
+    customerCompany: payload.customerCompany,
+    customerName: payload.customerName,
+    machineModel: payload.machineModel,
+    serialNumber: payload.serialNumber,
+    title: payload.title,
+    description: payload.description,
+    priority: payload.priority,
+    status: "Open",
+    assignee: undefined,
+    createdAt: new Date().toISOString(),
+  }
+
+  mockTickets = [newTicket, ...mockTickets]
+  return newTicket
+}
+
+export async function deleteTicket(id: string) {
+  mockTickets = mockTickets.filter(t => t.id !== id)
+}
