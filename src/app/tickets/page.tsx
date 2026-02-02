@@ -88,7 +88,6 @@ export default function TicketsPage() {
               ))}
             </div>
 
-            {/* Filters */}
             <div className="bg-white p-4 rounded-xl border border-slate-100 mb-6 flex flex-wrap gap-4 items-center shadow-sm">
               <div className="relative flex-1 min-w-[300px]">
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-slate-400" />
@@ -107,7 +106,6 @@ export default function TicketsPage() {
               </select>
             </div>
 
-            {/* Table */}
             <div className="bg-white rounded-xl border border-slate-100 shadow-sm overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left">

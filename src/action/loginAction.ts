@@ -4,8 +4,8 @@ export async function handleLogin(formData: any) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   const users = [
-    { username: "admin", password: "123456", name: "Administrator", email: "admin@company.com", role: "admin" },
-    { username: "user1", password: "password123", name: "Somsak Jaidee", email: "somsak@company.com", role: "user" }
+    { username: "admin", password: "123456", name: "Admini", email: "admin@gmail.com", role: "admin" },
+    { username: "user1", password: "password123", name: "Sasitorn", email: "Sasitorn@gmail..com", role: "user" }
   ];
 
   const user = users.find(u => u.username === formData.username && u.password === formData.password);
